@@ -22,6 +22,11 @@ int main() {
     cin >> t;
     while (t--) {
         cin >> n >> f;
+        if (n == 1) {
+            cin >> tmp;
+            cout << tmp << endl;
+            continue;
+        }
         sum = 0;
         money.clear();
         for (i = 0; i < n; ++i) {
@@ -30,11 +35,11 @@ int main() {
             money.push_back(tmp);
         }
         sort(money.begin(), money.end(), cmp);
-        i = 0;
-        j = n;
+        i = 1;
+        j = n - 1;
         while (true) {
             left = 0;
-            pivot = (i + j) / 2;
+            pivot = (i + j) >> 1;
             for (int k = 0; k < pivot; ++k) {
                 left += money[k];
             }
@@ -45,9 +50,9 @@ int main() {
                 cout << ave << endl;
                 break;
             } else if (money[pivot - 1] < ave) {
-                j = pivot;
+                j = pivot - 1;
             } else if (money[pivot] > ave) {
-                i = pivot;
+                i = pivot + 1;
             }
         }
     }
