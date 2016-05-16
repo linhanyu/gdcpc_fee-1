@@ -18,7 +18,7 @@ int main() {
     double left, right;
     double f, tmp, sum, ave;
     vector<double> money;
-
+    cout<<"你亲爹";
     cin >> t;
     while (t--) {
         cin >> n >> f;
